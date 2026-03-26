@@ -1,0 +1,156 @@
+<script type="text/javascript">
+	jQuery(document).ready(function() {
+		var cont = 0;
+		jQuery("#adicionar").click(function() {
+			cont++;
+			var conteudo = "<tr class='row-b'>";
+			conteudo += "<td class='first'><select name='tipoManejo'>		<% for(Insumo varInsumo: listaInsumo){ %>		<option 	value='<%=KeyFactory.keyToString(varInsumo.getId())%>'>		<%=varInsumo.getNomeInsumo()%>		</option><%} %></select>" + cont + "' /></td>";
+			conteudo += "<td><input type='text' size='10' maxlength='10' name='qtdInsumo" + cont + "' /></td>";
+			conteudo += "<td><input type='text' size='10' maxlength='10' name='precoInsumo" + cont + "' /></td>";
+			conteudo += "</tr>";
+			jQuery("tr:last").after(conteudo);
+		});
+	});
+</script>
+
+
+
+
+
+		<%
+		SimpleDateFormat formataData = new SimpleDateFormat("dd/MM/yyyy");
+		String dataInicial = formataData.format(<%=varRacao.getData()%>);
+		%>
+		
+		<%@ page language="java" contentType="text/html; charset=ISO-8859-1"
+    pageEncoding="ISO-8859-1"%>
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1">
+<link rel="stylesheet" href="css.css" type="text/css" />
+<!-- SLIDE SHOW ---------------------------------------------------------------------------------------->
+<!-- include jQuery library -->
+<script type="text/javascript" src="jquery/min.js"></script>
+
+<!-- include Cycle plugin -->
+<script type="text/javascript" src="jquery/all.js"></script>
+
+<!--  initialize the slideshow when the DOM is ready -->
+<script type="text/javascript">
+$(document).ready(function() {
+    $('.slideshow').cycle({
+		fx: 'fade' // choose your transition type, ex: fade, scrollUp, shuffle, etc...
+	});
+});
+</script>
+<!-- SLIDE SHOW ---------------------------------------------------------------------------------------->
+<title>Controle</title>
+</head>
+<body>
+<div id="wrap">
+
+	<div id="header">
+		<div id="header-content">	
+		
+			<h1 id="logo">Gado<span class="gray">Boi</span></h1>	
+			<h2 id="slogan">Gerenciamento Bovino...</h2>		
+		
+			<!-- Menu Tabs -->
+			<ul>
+				<li><a href="index.html" id="current">Home</a></li>
+				<li><a href="index.html">Contato</a></li>		
+			</ul>						
+		</div>
+	</div>
+	
+	<div class="headerphoto">		
+			<div class="slideshow">
+				<img src="jquery/1.jpg" width="760" height="200" />
+				<img src="jquery/2.jpg" width="760" height="200" />
+				<img src="jquery/3.jpg" width="760" height="200" />	
+				<img src="jquery/4.jpg" width="760" height="200" />
+				<img src="jquery/5.jpg" width="760" height="200" />
+				<img src="jquery/6.jpg" width="760" height="200" />	
+				<img src="jquery/7.jpg" width="760" height="200" />				
+			</div>
+	</div>
+				
+	<!-- content-wrap starts here -->
+	<div id="content-wrap"><div id="content">		
+		
+		<div id="sidebar" >	
+			<div class="sidebox">	
+			
+				<h1 class="clear">Menu</h1>
+				<ul class="sidemenu">
+					<li><a href="index.html" class="top">Voltar</a></li>				
+				</ul>	
+				
+			</div>														
+			<div class="sidebox">							
+				<h1>Pesquisa</h1>	
+				<form action="#" class="searchform">
+					<p>
+					<input name="search_query" class="textbox" type="text" />
+  					<input name="search" class="button" value="Search" type="submit" />
+					</p>			
+				</form>							
+			</div>
+					
+		</div>			
+		<div id="main">		
+		
+			<div class="post">
+			
+				
+				<h1>Controle</h1>		
+			</div>				
+					<table>
+					<tr>
+						<th class="first"><strong>post</strong> date</th>
+						<th>title</th>
+						<th>description</th>
+					</tr>
+					<tr class="row-a">
+						<td class="first">05.31.2006</td>
+						<td><a href="index.html">Augue non nibh</a></td>
+						<td><a href="index.html">Lobortis commodo metus vestibulum</a></td>
+					</tr>
+					<tr class="row-b">
+						<td class="first">05.31.2006</td>
+						<td><a href="index.html">Fusce ut diam bibendum</a></td>
+						<td><a href="index.html">Purus in eget odio in sapien</a></td>
+					</tr>
+					<tr class="row-a">
+						<td class="first">05.31.2006</td>
+						<td><a href="index.html">Maecenas et ipsum</a></td>
+						<td><a href="index.html">Adipiscing blandit quisque eros</a></td>
+					</tr>
+					<tr class="row-b">
+						<td class="first">05.31.2006</td>
+						<td><a href="index.html">Sed vestibulum blandit</a></td>
+						<td><a href="index.html">Cras lobortis commodo metus lorem</a></td>
+					</tr>
+					</table>							
+		</div>					
+		
+	<!-- footer starts here -->	
+<div id="footer">
+	<div id="footer-content">	
+		<div class="col2 float-right">
+		<p>
+		&copy; copyright 2011 <strong>Yousseff</strong><br /> 
+		Design by: <strong>Yousseff</strong></a>
+		</p>		
+		
+		</div>
+	
+	</div>
+</div>
+<!-- footer ends here -->
+</div>
+</div>
+</div>
+</body>
+</html>
