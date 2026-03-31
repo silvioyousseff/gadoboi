@@ -12,7 +12,7 @@ export class RacaoService extends ApiService {
   }
 
   listarVenda(): Observable<Racao[]> {
-    return this.http.get<Racao[]>(`${this.url}?status=V`);
+    return this.http.get<Racao[]>(`${this.url}/venda`);
   }
 
   buscar(id: number): Observable<Racao> {

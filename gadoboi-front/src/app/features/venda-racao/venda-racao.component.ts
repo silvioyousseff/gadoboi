@@ -462,6 +462,7 @@ export class VendaRacaoComponent implements OnInit {
     taxaRendimento: [null as number | null],
     insumos: this.fb.array([]),
     metodos: this.fb.array([]),
+    status: true
   });
 
   get insumosArray(): FormArray {
@@ -589,7 +590,7 @@ export class VendaRacaoComponent implements OnInit {
     const v = this.form.value;
     const payload: Partial<Racao> = {
       nomeRacao: v.nomeRacao!,
-      status: 'V',
+      status: true,
       gadoId: v.gadoId ? Number(v.gadoId) : undefined,
       regiaoId: v.regiaoId ? Number(v.regiaoId) : undefined,
       manejoId: v.manejoId ? Number(v.manejoId) : undefined,

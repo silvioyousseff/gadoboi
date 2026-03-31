@@ -54,7 +54,7 @@ export interface Racao {
   taxaRendimento?: number;
   data?: string;
   horario?: string;
-  status?: 'V' | null; // 'V' = for sale
+  status?: boolean;
   qtdGado?: number;
   qtdTratamentoDia?: number;
   pesoInicial?: number;

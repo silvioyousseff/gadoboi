@@ -1,11 +1,11 @@
-import { Component, inject, signal, OnInit, computed } from '@angular/core';
-import { ReactiveFormsModule, FormBuilder, Validators, FormArray, FormGroup } from '@angular/forms';
-import { RacaoService } from '../../core/services/racao.service';
+import { Component, OnInit, inject, signal } from '@angular/core';
+import { FormArray, FormBuilder, ReactiveFormsModule, Validators } from '@angular/forms';
+import { Gado, Insumo, Manejo, Racao, Regiao } from '../../core/models';
 import { GadoService } from '../../core/services/gado.service';
 import { InsumoService } from '../../core/services/insumo.service';
 import { ManejoService } from '../../core/services/manejo.service';
+import { RacaoService } from '../../core/services/racao.service';
 import { RegiaoService } from '../../core/services/regiao.service';
-import { Racao, Gado, Insumo, Manejo, Regiao } from '../../core/models';
 
 @Component({
   selector: 'app-racao',
@@ -100,7 +100,7 @@ import { Racao, Gado, Insumo, Manejo, Regiao } from '../../core/models';
                     {{ item.nomeRacao }}
                   </td>
                   <td class="px-6 py-4">
-                    @if (item.status === 'V') {
+                    @if (item.status) {
                       <span
                         class="px-2 py-0.5 bg-secondary/10 text-secondary rounded text-xs font-semibold"
                         >Venda</span
@@ -463,6 +463,7 @@ export class RacaoComponent implements OnInit {
     taxaRendimento: [null as number | null],
     insumos: this.fb.array([]),
     metodos: this.fb.array([]),
+    status: false
   });
 
   get insumosArray(): FormArray {
@@ -553,6 +554,7 @@ export class RacaoComponent implements OnInit {
       qtdTratamentoDia: item.qtdTratamentoDia ?? null,
       pesoInicial: item.pesoInicial ?? null,
       taxaRendimento: item.taxaRendimento ?? null,
+      status: false
     });
 
     item.insumos?.forEach((ins) => {
@@ -603,6 +605,7 @@ export class RacaoComponent implements OnInit {
           qtdInsumo: Number(i.qtdInsumo),
         })) ?? [],
       metodos: (v.metodos as string[])?.filter((m) => !!m) ?? [],
+      status: false
     };
 
     const item = this.editItem();
