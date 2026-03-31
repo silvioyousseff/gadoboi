@@ -2,7 +2,7 @@
 -- Migrated from Google Datastore entities (legacy project)
 
 CREATE TABLE endereco (
-    id         BIGINT AUTO_INCREMENT PRIMARY KEY,
+    id         BIGSERIAL PRIMARY KEY,
     bairro     VARCHAR(100),
     numero     VARCHAR(20),
     complemento VARCHAR(100),
@@ -11,7 +11,7 @@ CREATE TABLE endereco (
 );
 
 CREATE TABLE cliente (
-    id         BIGINT AUTO_INCREMENT PRIMARY KEY,
+    id         BIGSERIAL PRIMARY KEY,
     nome       VARCHAR(100) NOT NULL,
     sobrenome  VARCHAR(100) NOT NULL,
     email      VARCHAR(150) NOT NULL UNIQUE,
@@ -26,31 +26,31 @@ CREATE TABLE cliente (
 );
 
 CREATE TABLE gado (
-    id         BIGINT AUTO_INCREMENT PRIMARY KEY,
+    id         BIGSERIAL PRIMARY KEY,
     nome_gado  VARCHAR(150) NOT NULL,
     cliente_id BIGINT NOT NULL REFERENCES cliente(id)
 );
 
 CREATE TABLE insumo (
-    id          BIGINT AUTO_INCREMENT PRIMARY KEY,
+    id          BIGSERIAL PRIMARY KEY,
     nome_insumo VARCHAR(150) NOT NULL,
     cliente_id  BIGINT NOT NULL REFERENCES cliente(id)
 );
 
 CREATE TABLE manejo (
-    id          BIGINT AUTO_INCREMENT PRIMARY KEY,
+    id          BIGSERIAL PRIMARY KEY,
     nome_manejo VARCHAR(150) NOT NULL,
     cliente_id  BIGINT NOT NULL REFERENCES cliente(id)
 );
 
 CREATE TABLE regiao (
-    id          BIGINT AUTO_INCREMENT PRIMARY KEY,
+    id          BIGSERIAL PRIMARY KEY,
     nome_regiao VARCHAR(150) NOT NULL,
     cliente_id  BIGINT NOT NULL REFERENCES cliente(id)
 );
 
 CREATE TABLE racao (
-    id                    BIGINT AUTO_INCREMENT PRIMARY KEY,
+    id                    BIGSERIAL PRIMARY KEY,
     nome_racao            VARCHAR(200) NOT NULL,
     taxa_rendimento       NUMERIC(10,4),
     data                  DATE,
@@ -66,20 +66,20 @@ CREATE TABLE racao (
 );
 
 CREATE TABLE racao_insumo (
-    id         BIGINT AUTO_INCREMENT PRIMARY KEY,
+    id         BIGSERIAL PRIMARY KEY,
     racao_id   BIGINT NOT NULL REFERENCES racao(id) ON DELETE CASCADE,
     insumo_id  BIGINT NOT NULL REFERENCES insumo(id),
     qtd_insumo NUMERIC(10,4) NOT NULL
 );
 
 CREATE TABLE metodo (
-    id          BIGINT AUTO_INCREMENT PRIMARY KEY,
+    id          BIGSERIAL PRIMARY KEY,
     nome_metodo VARCHAR(200) NOT NULL,
     racao_id    BIGINT NOT NULL REFERENCES racao(id) ON DELETE CASCADE
 );
 
 CREATE TABLE rendimento (
-    id                          BIGINT AUTO_INCREMENT PRIMARY KEY,
+    id                          BIGSERIAL PRIMARY KEY,
     cliente_id                  BIGINT REFERENCES cliente(id),
     qtd_animais                 INTEGER      NOT NULL,
     periodo_de_tratamento       INTEGER      NOT NULL,
