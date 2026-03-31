@@ -50,7 +50,7 @@ public class RacaoService implements RacaoUseCase {
     }
 
     @Override
-    public List<Racao> listarParaVenda(Long clienteId) {
+    public List<Racao> listarParaVenda() {
         return racaoRepository.buscarParaVenda();
     }
 

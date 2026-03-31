@@ -8,5 +8,6 @@ import java.util.Optional;
 public interface RacaoJpaRepository extends JpaRepository<RacaoEntity, Long> {
     List<RacaoEntity> findByClienteId(Long clienteId);
     Optional<RacaoEntity> findByIdAndClienteId(Long id, Long clienteId);
-    List<RacaoEntity> findByClienteIdAndStatus(Long clienteId, String status);
+    List<RacaoEntity> findByClienteIdAndStatus(Long clienteId, Boolean status);
+    List<RacaoEntity> findByStatus(Boolean status);
 }

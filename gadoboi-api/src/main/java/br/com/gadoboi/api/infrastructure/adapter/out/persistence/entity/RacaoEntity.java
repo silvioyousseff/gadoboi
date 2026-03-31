@@ -20,8 +20,8 @@ public class RacaoEntity {
     private BigDecimal taxaRendimento;
     private LocalDate data;
     private LocalTime horario;
-    @Column(length = 1)
-    private String status;
+    @Column(name = "status")
+    private Boolean status;
     @Column(name = "qtd_gado")
     private Integer qtdGado;
     @Column(name = "qtd_tratamento_dia")

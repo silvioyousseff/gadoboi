@@ -10,7 +10,7 @@ public record Racao(
         Double taxaRendimento,
         LocalDate data,
         LocalTime horario,
-        String status,           // "V" = for sale, null = internal
+        Boolean status,
         Integer qtdGado,
         Integer qtdTratamentoDia,
         Double pesoInicial,

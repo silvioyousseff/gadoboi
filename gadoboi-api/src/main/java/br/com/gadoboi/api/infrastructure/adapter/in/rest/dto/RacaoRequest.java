@@ -10,7 +10,7 @@ public record RacaoRequest(
         Double taxaRendimento,
         LocalDate data,
         LocalTime horario,
-        String status,
+        Boolean status,
         Integer qtdGado,
         Integer qtdTratamentoDia,
         Double pesoInicial,

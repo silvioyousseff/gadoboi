@@ -8,6 +8,6 @@ public interface RacaoUseCase {
     Racao atualizar(Long id, Racao racao, Long clienteId);
     void remover(Long id, Long clienteId);
     List<Racao> listarPorCliente(Long clienteId);
-    List<Racao> listarParaVenda(Long clienteId);
+    List<Racao> listarParaVenda();
     Racao buscarPorId(Long id, Long clienteId);
 }

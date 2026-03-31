@@ -1,16 +1,17 @@
 package br.com.gadoboi.api.infrastructure.adapter.out.persistence.adapter;
 
+import java.util.List;
+import java.util.Optional;
+
+import org.springframework.stereotype.Component;
+import org.springframework.transaction.annotation.Transactional;
+
 import br.com.gadoboi.api.domain.model.Racao;
 import br.com.gadoboi.api.domain.port.out.RacaoRepository;
 import br.com.gadoboi.api.infrastructure.adapter.out.persistence.entity.RacaoEntity;
 import br.com.gadoboi.api.infrastructure.adapter.out.persistence.mapper.RacaoMapper;
 import br.com.gadoboi.api.infrastructure.adapter.out.persistence.repository.RacaoJpaRepository;
 import lombok.RequiredArgsConstructor;
-import org.springframework.stereotype.Component;
-import org.springframework.transaction.annotation.Transactional;
-
-import java.util.List;
-import java.util.Optional;
 
 @Component
 @RequiredArgsConstructor
@@ -38,7 +39,7 @@ public class RacaoRepositoryAdapter implements RacaoRepository {
 
     @Override
     public List<Racao> buscarParaVenda() {
-        return jpa.findByClienteIdAndStatus(null, "V").stream().map(mapper::toDomain).toList();
+        return jpa.findByStatus(true).stream().map(mapper::toDomain).toList();
     }
 
     @Override

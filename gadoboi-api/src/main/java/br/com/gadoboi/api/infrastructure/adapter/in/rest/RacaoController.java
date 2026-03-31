@@ -34,8 +34,8 @@ public class RacaoController {
 
     @Operation(summary = "Listar rações para venda")
     @GetMapping("/venda")
-    public List<Racao> listarVenda(@AuthenticationPrincipal ClienteDetails auth) {
-        return racaoUseCase.listarParaVenda(auth.id());
+    public List<Racao> listarVenda() {
+        return racaoUseCase.listarParaVenda();
     }
 
     @Operation(summary = "Buscar ração por ID")

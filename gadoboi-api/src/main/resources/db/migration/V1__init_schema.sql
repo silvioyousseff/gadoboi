@@ -55,7 +55,7 @@ CREATE TABLE racao (
     taxa_rendimento       NUMERIC(10,4),
     data                  DATE,
     horario               TIME,
-    status                VARCHAR(1),     -- 'V' = for sale, NULL = internal
+    status                BOOLEAN,
     qtd_gado              INTEGER,
     qtd_tratamento_dia    INTEGER,
     peso_inicial          NUMERIC(10,2),

@@ -1,0 +1,2 @@
+ALTER TABLE racao 
+MODIFY COLUMN status BOOLEAN;
