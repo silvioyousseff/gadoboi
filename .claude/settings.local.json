@@ -1,0 +1,43 @@
+{
+  "permissions": {
+    "allow": [
+      "Bash(find /Users/matheuspereira/Workspace/Pessoal/playgrounds/gadoboi -type f -name *.java -o -name *.xml -o -name *.jsp -o -name *.js -o -name *.sql)",
+      "Bash(wc -l /Users/matheuspereira/Workspace/Pessoal/playgrounds/gadoboi/src/br/com/gadoboi/bean/*.java /Users/matheuspereira/Workspace/Pessoal/playgrounds/gadoboi/src/br/com/gadoboi/servlet/*.java)",
+      "Bash(curl -s \"https://start.spring.io/starter.zip\" -d type=maven-project -d language=java -d bootVersion=3.4.4 -d baseDir=gadoboi-api -d groupId=br.com.gadoboi -d artifactId=gadoboi-api -d name=gadoboi-api -d description=\"GadoBoi API - Cattle management system\" -d packageName=br.com.gadoboi.api -d packaging=jar -d javaVersion=21 -d dependencies=web,data-jpa,postgresql,security,validation,lombok,actuator -o /tmp/gadoboi-api.zip)",
+      "Bash(unzip -q /tmp/gadoboi-api.zip)",
+      "Bash(curl -v \"https://start.spring.io/starter.zip\" -d type=maven-project -d language=java -d bootVersion=3.4.4 -d baseDir=gadoboi-api -d groupId=br.com.gadoboi -d artifactId=gadoboi-api -d name=gadoboi-api -d description=\"GadoBoi API\" -d packageName=br.com.gadoboi.api -d packaging=jar -d javaVersion=21 -d dependencies=web,data-jpa,postgresql,security,validation,lombok,actuator -o /tmp/gadoboi-api.zip)",
+      "Bash(curl -s \"https://start.spring.io/starter.zip\" -d type=maven-project -d language=java -d bootVersion=3.5.0 -d baseDir=gadoboi-api -d groupId=br.com.gadoboi -d artifactId=gadoboi-api -d name=gadoboi-api -d description=\"GadoBoi API\" -d packageName=br.com.gadoboi.api -d packaging=jar -d javaVersion=21 -d dependencies=web,data-jpa,postgresql,security,validation,lombok,actuator -o /tmp/gadoboi-api.zip)",
+      "Bash(npm -v)",
+      "Bash(npx @angular/cli@latest version)",
+      "Bash(npx @angular/cli@latest new gadoboi-front --routing=true --style=scss --ssr=false --skip-git=true --skip-tests=false --package-manager=npm)",
+      "Bash(npm install:*)",
+      "Bash(npm --prefix /Users/matheuspereira/Workspace/Pessoal/playgrounds/gadoboi/gadoboi-front install -D tailwindcss @tailwindcss/forms @tailwindcss/typography postcss autoprefixer)",
+      "Bash(python3 -c \"import json,sys; d=json.load\\(sys.stdin\\); print\\(d[''''version'''']\\)\")",
+      "Bash(npm --prefix /Users/matheuspereira/Workspace/Pessoal/playgrounds/gadoboi/gadoboi-front install -D @ng-icons/core class-variance-authority clsx tailwind-merge)",
+      "Bash(FRONT=/Users/matheuspereira/Workspace/Pessoal/playgrounds/gadoboi/gadoboi-front/src/app __NEW_LINE_9c243e52ec84475c__ mkdir -p $FRONT/core/services $FRONT/core/interceptors $FRONT/core/guards $FRONT/core/models $FRONT/shared/components $FRONT/shared/pipes $FRONT/features/auth/login $FRONT/features/auth/cadastro $FRONT/features/dashboard $FRONT/features/gado $FRONT/features/insumo $FRONT/features/racao $FRONT/features/manejo $FRONT/features/regiao $FRONT/features/rendimento $FRONT/features/venda-racao $FRONT/features/formulas __NEW_LINE_9c243e52ec84475c__ echo \"structure created\" find $FRONT -type d)",
+      "Bash(npx ng:*)",
+      "Bash(cat /Users/matheuspereira/Workspace/Pessoal/playgrounds/gadoboi/gadoboi-front/src/app/core/interceptors/*.ts)",
+      "Bash(npx tsc:*)",
+      "Bash(npm run:*)",
+      "Bash(./mvnw compile:*)",
+      "Bash(./mvnw test:*)",
+      "Bash(ls -la *.*)",
+      "Bash(xargs ls:*)",
+      "Bash(node:*)",
+      "Bash(ls /Users/matheuspereira/Workspace/Pessoal/playgrounds/gadoboi/gadoboi-front/dist/gadoboi-front/browser/*.css)",
+      "Bash(cat /Users/matheuspereira/Workspace/Pessoal/playgrounds/gadoboi/gadoboi-front/dist/gadoboi-front/browser/*.css)",
+      "Bash(node -e \":*)",
+      "Bash(echo 'Path not found' __NEW_LINE_8149df445632dd59__ grep -r \"postcssConfig\\\\|postcss.config\\\\|loadPostcss\" node_modules/@angular/build/src --include=*.js -l)",
+      "Bash(grep -c \"\\\\.min-h-screen\\\\|\\\\.bg-primary\\\\|\\\\.flex\\\\|\\\\.text-sm\" dist/gadoboi-front/browser/styles-*.css)",
+      "Bash(cat dist/gadoboi-front/browser/styles-*.css)",
+      "Bash(grep -o '\\\\.bg-primary[^{]*{[^}]*}' dist/gadoboi-front/browser/styles-*.css)",
+      "Bash(for f:*)",
+      "Bash(do echo:*)",
+      "Read(//Users/matheuspereira/Workspace/Pessoal/playgrounds/gadoboi/gadoboi-api/**)",
+      "Bash(done)",
+      "Bash(xargs cat:*)",
+      "Bash(BASE=/Users/matheuspereira/Workspace/Pessoal/playgrounds/gadoboi/gadoboi-api/src/main/java/br/com/gadoboi/api)",
+      "Read(//Users/matheuspereira/Workspace/Pessoal/playgrounds/gadoboi/gadoboi-front/$BASE/application/service/**)"
+    ]
+  }
+}

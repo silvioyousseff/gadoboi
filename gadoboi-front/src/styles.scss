@@ -1,0 +1,47 @@
+@import "tailwindcss";
+
+@theme {
+  --color-primary: #9f4200;
+  --color-primary-container: #f47121;
+  --color-on-primary: #ffffff;
+  --color-secondary: #005cba;
+  --color-secondary-container: #5095fe;
+  --color-on-secondary: #ffffff;
+  --color-on-secondary-container: #002d61;
+  --color-tertiary: #1b6d24;
+  --color-tertiary-container: #5aa958;
+  --color-on-tertiary: #ffffff;
+  --color-on-tertiary-container: #003909;
+  --color-surface: #f7f9fc;
+  --color-surface-dim: #d8dadd;
+  --color-surface-container-lowest: #ffffff;
+  --color-surface-container-low: #f2f4f7;
+  --color-surface-container: #eceef1;
+  --color-surface-container-high: #e6e8eb;
+  --color-surface-container-highest: #e0e3e6;
+  --color-on-surface: #191c1e;
+  --color-on-surface-variant: #584237;
+  --color-outline: #8c7165;
+  --color-outline-variant: #e0c0b2;
+  --color-error: #ba1a1a;
+  --color-on-error: #ffffff;
+  --color-error-container: #ffdad6;
+  --color-on-error-container: #93000a;
+
+  --font-headline: "Plus Jakarta Sans", sans-serif;
+  --font-body: "Inter", sans-serif;
+}
+
+body {
+  font-family: "Inter", sans-serif;
+  background-color: #f7f9fc;
+  color: #191c1e;
+}
+
+.font-headline {
+  font-family: "Plus Jakarta Sans", sans-serif;
+}
+
+.material-symbols-outlined {
+  font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24;
+}

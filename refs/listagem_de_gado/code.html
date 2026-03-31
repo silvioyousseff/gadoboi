@@ -1,0 +1,495 @@
+<!DOCTYPE html>
+
+<html lang="pt-BR"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&amp;family=Inter:wght@400;500;600&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script id="tailwind-config">
+      tailwind.config = {
+        darkMode: "class",
+        theme: {
+          extend: {
+            colors: {
+              "on-secondary-fixed": "#001b3e",
+              "error": "#ba1a1a",
+              "tertiary-fixed-dim": "#88d982",
+              "on-primary-fixed": "#341100",
+              "tertiary-container": "#5aa958",
+              "primary": "#9f4200",
+              "on-surface-variant": "#584237",
+              "secondary": "#005cba",
+              "surface-container-lowest": "#ffffff",
+              "on-error": "#ffffff",
+              "on-background": "#191c1e",
+              "on-tertiary-fixed-variant": "#005312",
+              "tertiary-fixed": "#a3f69c",
+              "on-secondary-fixed-variant": "#00458e",
+              "error-container": "#ffdad6",
+              "surface-dim": "#d8dadd",
+              "secondary-fixed-dim": "#aac7ff",
+              "inverse-primary": "#ffb692",
+              "inverse-surface": "#2d3133",
+              "on-surface": "#191c1e",
+              "on-tertiary": "#ffffff",
+              "outline": "#8c7165",
+              "surface-variant": "#e0e3e6",
+              "primary-fixed": "#ffdbcb",
+              "surface": "#f7f9fc",
+              "on-tertiary-container": "#003909",
+              "surface-container-highest": "#e0e3e6",
+              "on-tertiary-fixed": "#002204",
+              "on-secondary": "#ffffff",
+              "on-secondary-container": "#002d61",
+              "on-error-container": "#93000a",
+              "outline-variant": "#e0c0b2",
+              "surface-container-high": "#e6e8eb",
+              "inverse-on-surface": "#eff1f4",
+              "surface-tint": "#9f4200",
+              "primary-container": "#f47121",
+              "surface-container-low": "#f2f4f7",
+              "surface-bright": "#f7f9fc",
+              "on-primary-fixed-variant": "#793000",
+              "secondary-container": "#5095fe",
+              "on-primary": "#ffffff",
+              "background": "#f7f9fc",
+              "surface-container": "#eceef1",
+              "secondary-fixed": "#d7e3ff",
+              "on-primary-container": "#552000",
+              "primary-fixed-dim": "#ffb692",
+              "tertiary": "#1b6d24"
+            },
+            fontFamily: {
+              "headline": ["Plus Jakarta Sans"],
+              "body": ["Inter"],
+              "label": ["Inter"]
+            },
+            borderRadius: {"DEFAULT": "0.25rem", "lg": "0.5rem", "xl": "0.75rem", "full": "9999px"},
+          },
+        },
+      }
+    </script>
+<style>
+      .material-symbols-outlined {
+        font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24;
+      }
+      body { font-family: 'Inter', sans-serif; }
+      h1, h2, h3, .font-headline { font-family: 'Plus Jakarta Sans', sans-serif; }
+      .tonal-shift-no-border {
+        border: none !important;
+      }
+    </style>
+</head>
+<body class="bg-surface text-on-surface">
+<!-- SideNavBar -->
+<aside class="h-screen w-64 fixed left-0 top-0 bg-white dark:bg-slate-900 flex flex-col py-6 px-4 font-['Plus_Jakarta_Sans'] antialiased z-50">
+<div class="mb-10 px-4">
+<h1 class="text-xl font-bold text-[#9f4200] dark:text-[#f47121] tracking-tight">Pecuária Pro</h1>
+<p class="text-xs text-on-surface-variant/70">Painel Editorial</p>
+</div>
+<nav class="flex-1 space-y-1">
+<a class="flex items-center gap-3 px-4 py-3 rounded-lg text-slate-500 dark:text-slate-400 hover:bg-[#f2f4f7] dark:hover:bg-slate-800 transition-all duration-200" href="#">
+<span class="material-symbols-outlined">dashboard</span>
+<span class="text-sm">Dashboard</span>
+</a>
+<a class="flex items-center gap-3 px-4 py-3 rounded-lg text-[#9f4200] dark:text-[#f47121] font-semibold border-l-4 border-[#9f4200] bg-[#f2f4f7]/50 dark:bg-slate-800/50 transition-all duration-200" href="#">
+<span class="material-symbols-outlined">agriculture</span>
+<span class="text-sm">Gado</span>
+</a>
+<a class="flex items-center gap-3 px-4 py-3 rounded-lg text-slate-500 dark:text-slate-400 hover:bg-[#f2f4f7] dark:hover:bg-slate-800 transition-all duration-200" href="#">
+<span class="material-symbols-outlined">grass</span>
+<span class="text-sm">Ração</span>
+</a>
+<a class="flex items-center gap-3 px-4 py-3 rounded-lg text-slate-500 dark:text-slate-400 hover:bg-[#f2f4f7] dark:hover:bg-slate-800 transition-all duration-200" href="#">
+<span class="material-symbols-outlined">science</span>
+<span class="text-sm">Fórmulas</span>
+</a>
+<a class="flex items-center gap-3 px-4 py-3 rounded-lg text-slate-500 dark:text-slate-400 hover:bg-[#f2f4f7] dark:hover:bg-slate-800 transition-all duration-200" href="#">
+<span class="material-symbols-outlined">monitor_weight</span>
+<span class="text-sm">Pesagem</span>
+</a>
+<a class="flex items-center gap-3 px-4 py-3 rounded-lg text-slate-500 dark:text-slate-400 hover:bg-[#f2f4f7] dark:hover:bg-slate-800 transition-all duration-200" href="#">
+<span class="material-symbols-outlined">payments</span>
+<span class="text-sm">Financeiro</span>
+</a>
+<a class="flex items-center gap-3 px-4 py-3 rounded-lg text-slate-500 dark:text-slate-400 hover:bg-[#f2f4f7] dark:hover:bg-slate-800 transition-all duration-200" href="#">
+<span class="material-symbols-outlined">analytics</span>
+<span class="text-sm">Relatórios</span>
+</a>
+<a class="flex items-center gap-3 px-4 py-3 rounded-lg text-slate-500 dark:text-slate-400 hover:bg-[#f2f4f7] dark:hover:bg-slate-800 transition-all duration-200" href="#">
+<span class="material-symbols-outlined">settings</span>
+<span class="text-sm">Configurações</span>
+</a>
+</nav>
+<div class="mt-auto px-4 py-4 bg-surface-container-low rounded-xl flex items-center gap-3">
+<div class="w-10 h-10 rounded-full bg-primary/10 flex items-center justify-center overflow-hidden">
+<img alt="Avatar do Usuário" class="w-full h-full object-cover" data-alt="professional portrait of a middle-aged man with short hair and friendly expression in soft natural lighting" src="https://lh3.googleusercontent.com/aida-public/AB6AXuBWQEVEwEJy32HmwAWHofnk9jDDa9NoQgkYIzh1TzH5ZDz7OFoNyE5pngjrxlmY8yqfGFv_h6mYNcJpEaprsL7MA_McFwQlVDxNi3RtXrkvTegr-Yb5YwXdpZWCLaWX3B8yiDThvQ7f5NK-ZIFfXofGwJavdcyu2ktVNewBZGtKX5rt0EoZAwtXli2xbneaeneFNZoXBreVGF5zn6cy3OFzmwk_4Pxv6CteTC1SPVY0Gy3XR6LMWe4BGGgxGgDWTk1rcZLeCSlrCVyC"/>
+</div>
+<div class="flex-1 overflow-hidden">
+<p class="text-sm font-semibold truncate">Ricardo Silva</p>
+<p class="text-xs text-on-surface-variant truncate">Administrador</p>
+</div>
+</div>
+</aside>
+<!-- TopNavBar -->
+<header class="fixed top-0 right-0 w-[calc(100%-16rem)] h-16 z-40 bg-white/80 dark:bg-slate-900/80 backdrop-blur-md flex justify-between items-center px-8 shadow-sm dark:shadow-none font-['Plus_Jakarta_Sans'] text-sm">
+<div class="flex items-center gap-4 flex-1 max-w-xl">
+<div class="relative w-full">
+<span class="material-symbols-outlined absolute left-3 top-1/2 -translate-y-1/2 text-on-surface-variant">search</span>
+<input class="w-full pl-10 pr-4 py-2 bg-surface-container-highest/50 border-none rounded-lg focus:ring-2 focus:ring-primary/20 text-sm" placeholder="Buscar animais, lotes ou registros..." type="text"/>
+</div>
+</div>
+<div class="flex items-center gap-6">
+<button class="bg-primary text-on-primary px-4 py-2 rounded-lg font-semibold hover:bg-primary-container transition-opacity flex items-center gap-2">
+<span class="material-symbols-outlined text-[20px]">add</span>
+                Adicionar Campo
+            </button>
+<div class="flex items-center gap-4 text-on-surface-variant">
+<button class="hover:opacity-80 transition-opacity">
+<span class="material-symbols-outlined">notifications</span>
+</button>
+<button class="hover:opacity-80 transition-opacity">
+<span class="material-symbols-outlined">account_circle</span>
+</button>
+</div>
+</div>
+</header>
+<!-- Content Area -->
+<main class="ml-64 pt-16 min-h-screen p-8 bg-surface">
+<!-- Header Section -->
+<div class="mb-8 flex justify-between items-end">
+<div>
+<h2 class="text-3xl font-bold text-on-surface tracking-tight font-headline">Gado</h2>
+<p class="text-on-surface-variant body-md mt-1">Gerenciamento completo do rebanho e rastreabilidade animal.</p>
+</div>
+<div class="flex gap-3">
+<button class="px-4 py-2 bg-white rounded-lg shadow-sm border-none flex items-center gap-2 text-sm font-medium hover:bg-surface-container-low transition-colors">
+<span class="material-symbols-outlined text-[18px]">filter_list</span>
+                    Filtros Avançados
+                </button>
+<button class="px-4 py-2 bg-white rounded-lg shadow-sm border-none flex items-center gap-2 text-sm font-medium hover:bg-surface-container-low transition-colors">
+<span class="material-symbols-outlined text-[18px]">file_download</span>
+                    Exportar
+                </button>
+</div>
+</div>
+<!-- Summary Cards (Bento-ish) -->
+<div class="grid grid-cols-1 md:grid-cols-4 gap-6 mb-8">
+<div class="bg-surface-container-lowest p-6 rounded-xl shadow-none border-none group hover:bg-primary/5 transition-colors">
+<div class="flex justify-between items-start mb-4">
+<div class="p-2 bg-primary/10 rounded-lg text-primary">
+<span class="material-symbols-outlined">pets</span>
+</div>
+<span class="text-xs font-bold text-tertiary px-2 py-1 bg-tertiary-fixed rounded-full">+2.4%</span>
+</div>
+<p class="text-on-surface-variant label-sm font-semibold">TOTAL DE CABEÇAS</p>
+<h3 class="text-3xl font-bold mt-1 font-headline">1.248</h3>
+</div>
+<div class="bg-surface-container-lowest p-6 rounded-xl shadow-none border-none group hover:bg-secondary/5 transition-colors">
+<div class="flex justify-between items-start mb-4">
+<div class="p-2 bg-secondary/10 rounded-lg text-secondary">
+<span class="material-symbols-outlined">groups</span>
+</div>
+<span class="text-xs font-medium text-on-surface-variant">12 Lotes</span>
+</div>
+<p class="text-on-surface-variant label-sm font-semibold">LOTES ATIVOS</p>
+<h3 class="text-3xl font-bold mt-1 font-headline">14</h3>
+</div>
+<div class="bg-surface-container-lowest p-6 rounded-xl shadow-none border-none group hover:bg-tertiary/5 transition-colors">
+<div class="flex justify-between items-start mb-4">
+<div class="p-2 bg-tertiary/10 rounded-lg text-tertiary">
+<span class="material-symbols-outlined">monitor_weight</span>
+</div>
+<span class="text-xs font-medium text-tertiary">Ideal</span>
+</div>
+<p class="text-on-surface-variant label-sm font-semibold">PESO MÉDIO (GMD)</p>
+<h3 class="text-3xl font-bold mt-1 font-headline">1.150g</h3>
+</div>
+<div class="bg-surface-container-lowest p-6 rounded-xl shadow-none border-none group hover:bg-primary/5 transition-colors">
+<div class="flex justify-between items-start mb-4">
+<div class="p-2 bg-primary-container/20 rounded-lg text-primary">
+<span class="material-symbols-outlined">calendar_today</span>
+</div>
+<span class="text-xs font-medium text-on-surface-variant">Próxima semana</span>
+</div>
+<p class="text-on-surface-variant label-sm font-semibold">PESAGENS AGENDADAS</p>
+<h3 class="text-3xl font-bold mt-1 font-headline">320</h3>
+</div>
+</div>
+<!-- Table Section -->
+<div class="bg-surface-container-lowest rounded-xl shadow-none overflow-hidden">
+<div class="p-6 flex items-center justify-between border-b border-surface-container-high/50">
+<div class="flex gap-4">
+<button class="px-4 py-1.5 bg-primary/10 text-primary text-xs font-bold rounded-full">Todos</button>
+<button class="px-4 py-1.5 text-on-surface-variant text-xs font-bold hover:bg-surface-container-low rounded-full transition-colors">Engorda</button>
+<button class="px-4 py-1.5 text-on-surface-variant text-xs font-bold hover:bg-surface-container-low rounded-full transition-colors">Cria/Recria</button>
+<button class="px-4 py-1.5 text-on-surface-variant text-xs font-bold hover:bg-surface-container-low rounded-full transition-colors">Matrizes</button>
+</div>
+<div class="flex items-center gap-2">
+<span class="text-xs text-on-surface-variant font-medium">Ordenar por:</span>
+<select class="bg-transparent border-none text-xs font-bold focus:ring-0 cursor-pointer">
+<option>Mais Recentes</option>
+<option>Peso (Decrescente)</option>
+<option>Idade</option>
+</select>
+</div>
+</div>
+<div class="overflow-x-auto">
+<table class="w-full text-left">
+<thead>
+<tr class="bg-surface-container-low/30">
+<th class="px-6 py-4 text-[11px] font-bold text-on-surface-variant tracking-wider uppercase">Identificação</th>
+<th class="px-6 py-4 text-[11px] font-bold text-on-surface-variant tracking-wider uppercase">Raça</th>
+<th class="px-6 py-4 text-[11px] font-bold text-on-surface-variant tracking-wider uppercase">Idade</th>
+<th class="px-6 py-4 text-[11px] font-bold text-on-surface-variant tracking-wider uppercase">Peso Inicial</th>
+<th class="px-6 py-4 text-[11px] font-bold text-on-surface-variant tracking-wider uppercase">Lote</th>
+<th class="px-6 py-4 text-[11px] font-bold text-on-surface-variant tracking-wider uppercase text-right">Ações</th>
+</tr>
+</thead>
+<tbody class="divide-y divide-surface-container-high/40">
+<!-- Row 1 -->
+<tr class="group hover:bg-surface-container-low/50 transition-colors">
+<td class="px-6 py-5">
+<div class="flex items-center gap-3">
+<div class="w-10 h-10 rounded-lg bg-surface-container-high flex items-center justify-center">
+<span class="material-symbols-outlined text-on-surface-variant text-[20px]">tag</span>
+</div>
+<div>
+<p class="text-sm font-bold text-on-surface">#BR-8921</p>
+<p class="text-xs text-on-surface-variant">Macho • Castrado</p>
+</div>
+</div>
+</td>
+<td class="px-6 py-5">
+<span class="text-sm text-on-surface">Nelore PO</span>
+</td>
+<td class="px-6 py-5">
+<span class="text-sm text-on-surface">24 Meses</span>
+</td>
+<td class="px-6 py-5">
+<div class="flex flex-col">
+<span class="text-sm font-semibold text-on-surface">415 kg</span>
+<span class="text-[10px] text-tertiary font-bold tracking-tight">↑ 12.4% vs Média</span>
+</div>
+</td>
+<td class="px-6 py-5">
+<span class="px-2.5 py-1 bg-secondary-container/20 text-secondary text-[11px] font-bold rounded-md">PASTO ALFA-01</span>
+</td>
+<td class="px-6 py-5 text-right">
+<div class="flex justify-end gap-2">
+<button class="p-2 text-on-surface-variant hover:text-secondary hover:bg-secondary/10 rounded-lg transition-all" title="Visualizar">
+<span class="material-symbols-outlined text-[18px]">visibility</span>
+</button>
+<button class="p-2 text-on-surface-variant hover:text-primary hover:bg-primary/10 rounded-lg transition-all" title="Editar">
+<span class="material-symbols-outlined text-[18px]">edit</span>
+</button>
+<button class="p-2 text-on-surface-variant hover:text-error hover:bg-error/10 rounded-lg transition-all" title="Excluir">
+<span class="material-symbols-outlined text-[18px]">delete</span>
+</button>
+</div>
+</td>
+</tr>
+<!-- Row 2 -->
+<tr class="group hover:bg-surface-container-low/50 transition-colors">
+<td class="px-6 py-5">
+<div class="flex items-center gap-3">
+<div class="w-10 h-10 rounded-lg bg-surface-container-high flex items-center justify-center">
+<span class="material-symbols-outlined text-on-surface-variant text-[20px]">tag</span>
+</div>
+<div>
+<p class="text-sm font-bold text-on-surface">#BR-8942</p>
+<p class="text-xs text-on-surface-variant">Fêmea • Novilha</p>
+</div>
+</div>
+</td>
+<td class="px-6 py-5">
+<span class="text-sm text-on-surface">Angus x Nelore</span>
+</td>
+<td class="px-6 py-5">
+<span class="text-sm text-on-surface">18 Meses</span>
+</td>
+<td class="px-6 py-5">
+<div class="flex flex-col">
+<span class="text-sm font-semibold text-on-surface">360 kg</span>
+<span class="text-[10px] text-on-surface-variant font-bold tracking-tight">Dentro da meta</span>
+</div>
+</td>
+<td class="px-6 py-5">
+<span class="px-2.5 py-1 bg-secondary-container/20 text-secondary text-[11px] font-bold rounded-md">RECRIA-B</span>
+</td>
+<td class="px-6 py-5 text-right">
+<div class="flex justify-end gap-2">
+<button class="p-2 text-on-surface-variant hover:text-secondary hover:bg-secondary/10 rounded-lg transition-all" title="Visualizar">
+<span class="material-symbols-outlined text-[18px]">visibility</span>
+</button>
+<button class="p-2 text-on-surface-variant hover:text-primary hover:bg-primary/10 rounded-lg transition-all" title="Editar">
+<span class="material-symbols-outlined text-[18px]">edit</span>
+</button>
+<button class="p-2 text-on-surface-variant hover:text-error hover:bg-error/10 rounded-lg transition-all" title="Excluir">
+<span class="material-symbols-outlined text-[18px]">delete</span>
+</button>
+</div>
+</td>
+</tr>
+<!-- Row 3 -->
+<tr class="group hover:bg-surface-container-low/50 transition-colors">
+<td class="px-6 py-5">
+<div class="flex items-center gap-3">
+<div class="w-10 h-10 rounded-lg bg-surface-container-high flex items-center justify-center">
+<span class="material-symbols-outlined text-on-surface-variant text-[20px]">tag</span>
+</div>
+<div>
+<p class="text-sm font-bold text-on-surface">#BR-9011</p>
+<p class="text-xs text-on-surface-variant">Macho • Inteiro</p>
+</div>
+</div>
+</td>
+<td class="px-6 py-5">
+<span class="text-sm text-on-surface">Brahman</span>
+</td>
+<td class="px-6 py-5">
+<span class="text-sm text-on-surface">32 Meses</span>
+</td>
+<td class="px-6 py-5">
+<div class="flex flex-col">
+<span class="text-sm font-semibold text-on-surface">542 kg</span>
+<span class="text-[10px] text-primary font-bold tracking-tight">Atenção • Peso Alto</span>
+</div>
+</td>
+<td class="px-6 py-5">
+<span class="px-2.5 py-1 bg-secondary-container/20 text-secondary text-[11px] font-bold rounded-md">REPRODUTORES</span>
+</td>
+<td class="px-6 py-5 text-right">
+<div class="flex justify-end gap-2">
+<button class="p-2 text-on-surface-variant hover:text-secondary hover:bg-secondary/10 rounded-lg transition-all" title="Visualizar">
+<span class="material-symbols-outlined text-[18px]">visibility</span>
+</button>
+<button class="p-2 text-on-surface-variant hover:text-primary hover:bg-primary/10 rounded-lg transition-all" title="Editar">
+<span class="material-symbols-outlined text-[18px]">edit</span>
+</button>
+<button class="p-2 text-on-surface-variant hover:text-error hover:bg-error/10 rounded-lg transition-all" title="Excluir">
+<span class="material-symbols-outlined text-[18px]">delete</span>
+</button>
+</div>
+</td>
+</tr>
+<!-- Row 4 -->
+<tr class="group hover:bg-surface-container-low/50 transition-colors">
+<td class="px-6 py-5">
+<div class="flex items-center gap-3">
+<div class="w-10 h-10 rounded-lg bg-surface-container-high flex items-center justify-center">
+<span class="material-symbols-outlined text-on-surface-variant text-[20px]">tag</span>
+</div>
+<div>
+<p class="text-sm font-bold text-on-surface">#BR-9025</p>
+<p class="text-xs text-on-surface-variant">Fêmea • Vaca</p>
+</div>
+</div>
+</td>
+<td class="px-6 py-5">
+<span class="text-sm text-on-surface">Nelore</span>
+</td>
+<td class="px-6 py-5">
+<span class="text-sm text-on-surface">48 Meses</span>
+</td>
+<td class="px-6 py-5">
+<div class="flex flex-col">
+<span class="text-sm font-semibold text-on-surface">480 kg</span>
+<span class="text-[10px] text-tertiary font-bold tracking-tight">Gestação Confirmada</span>
+</div>
+</td>
+<td class="px-6 py-5">
+<span class="px-2.5 py-1 bg-secondary-container/20 text-secondary text-[11px] font-bold rounded-md">MATRIZES-A</span>
+</td>
+<td class="px-6 py-5 text-right">
+<div class="flex justify-end gap-2">
+<button class="p-2 text-on-surface-variant hover:text-secondary hover:bg-secondary/10 rounded-lg transition-all" title="Visualizar">
+<span class="material-symbols-outlined text-[18px]">visibility</span>
+</button>
+<button class="p-2 text-on-surface-variant hover:text-primary hover:bg-primary/10 rounded-lg transition-all" title="Editar">
+<span class="material-symbols-outlined text-[18px]">edit</span>
+</button>
+<button class="p-2 text-on-surface-variant hover:text-error hover:bg-error/10 rounded-lg transition-all" title="Excluir">
+<span class="material-symbols-outlined text-[18px]">delete</span>
+</button>
+</div>
+</td>
+</tr>
+</tbody>
+</table>
+</div>
+<!-- Pagination -->
+<div class="px-6 py-4 flex items-center justify-between bg-surface-container-low/20">
+<span class="text-xs text-on-surface-variant font-medium">Exibindo 1-10 de 1.248 animais</span>
+<div class="flex items-center gap-1">
+<button class="p-1.5 rounded-md hover:bg-surface-container-high transition-colors text-on-surface-variant disabled:opacity-30" disabled="">
+<span class="material-symbols-outlined text-[20px]">chevron_left</span>
+</button>
+<button class="w-8 h-8 rounded-md bg-primary text-on-primary text-xs font-bold">1</button>
+<button class="w-8 h-8 rounded-md hover:bg-surface-container-high text-xs font-bold transition-colors">2</button>
+<button class="w-8 h-8 rounded-md hover:bg-surface-container-high text-xs font-bold transition-colors">3</button>
+<span class="px-1 text-xs text-on-surface-variant font-bold">...</span>
+<button class="w-8 h-8 rounded-md hover:bg-surface-container-high text-xs font-bold transition-colors">125</button>
+<button class="p-1.5 rounded-md hover:bg-surface-container-high transition-colors text-on-surface-variant">
+<span class="material-symbols-outlined text-[20px]">chevron_right</span>
+</button>
+</div>
+</div>
+</div>
+<!-- Asymmetric Detail Section -->
+<div class="mt-12 grid grid-cols-1 lg:grid-cols-12 gap-8">
+<div class="lg:col-span-8">
+<div class="bg-surface-container-lowest p-8 rounded-xl relative overflow-hidden">
+<div class="relative z-10">
+<h4 class="text-xl font-bold font-headline mb-2">Desempenho Geral do Rebanho</h4>
+<p class="text-on-surface-variant text-sm mb-6 max-w-lg">Análise detalhada do ganho de peso médio diário consolidado nos últimos 30 dias por categoria.</p>
+<div class="flex items-end gap-6 h-48 mt-4">
+<div class="flex-1 flex flex-col items-center gap-2">
+<div class="w-full bg-primary/10 rounded-t-lg h-[60%] relative group">
+<div class="absolute -top-8 left-1/2 -translate-x-1/2 bg-on-surface text-white text-[10px] py-1 px-2 rounded opacity-0 group-hover:opacity-100 transition-opacity">850g</div>
+</div>
+<span class="text-[10px] font-bold text-on-surface-variant">Bezerros</span>
+</div>
+<div class="flex-1 flex flex-col items-center gap-2">
+<div class="w-full bg-primary/20 rounded-t-lg h-[75%] relative group">
+<div class="absolute -top-8 left-1/2 -translate-x-1/2 bg-on-surface text-white text-[10px] py-1 px-2 rounded opacity-0 group-hover:opacity-100 transition-opacity">1.1kg</div>
+</div>
+<span class="text-[10px] font-bold text-on-surface-variant">Novilhos</span>
+</div>
+<div class="flex-1 flex flex-col items-center gap-2">
+<div class="w-full bg-primary rounded-t-lg h-[95%] relative group">
+<div class="absolute -top-8 left-1/2 -translate-x-1/2 bg-on-surface text-white text-[10px] py-1 px-2 rounded opacity-0 group-hover:opacity-100 transition-opacity">1.4kg</div>
+</div>
+<span class="text-[10px] font-bold text-on-surface-variant">Engorda</span>
+</div>
+<div class="flex-1 flex flex-col items-center gap-2">
+<div class="w-full bg-primary/40 rounded-t-lg h-[40%] relative group">
+<div class="absolute -top-8 left-1/2 -translate-x-1/2 bg-on-surface text-white text-[10px] py-1 px-2 rounded opacity-0 group-hover:opacity-100 transition-opacity">600g</div>
+</div>
+<span class="text-[10px] font-bold text-on-surface-variant">Matrizes</span>
+</div>
+</div>
+</div>
+<!-- Subtle background decoration -->
+<div class="absolute top-0 right-0 w-64 h-64 bg-primary/5 rounded-full -mr-20 -mt-20 blur-3xl"></div>
+</div>
+</div>
+<div class="lg:col-span-4">
+<div class="bg-primary text-on-primary p-8 rounded-xl h-full flex flex-col justify-between">
+<div>
+<span class="material-symbols-outlined text-4xl mb-4">bolt</span>
+<h4 class="text-xl font-bold font-headline mb-4">Insights de IA</h4>
+<p class="text-on-primary/80 text-sm leading-relaxed mb-6">
+                            Baseado no histórico de pesagem, o lote <strong>PASTO ALFA-01</strong> atingirá o peso de abate em 14 dias antes do previsto. Recomendamos ajustar a suplementação proteica.
+                        </p>
+</div>
+<button class="w-full py-3 bg-white/20 hover:bg-white/30 rounded-lg text-sm font-bold transition-all backdrop-blur-sm">
+                        Ver Relatório Completo
+                    </button>
+</div>
+</div>
+</div>
+</main>
+</body></html>

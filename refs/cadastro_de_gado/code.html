@@ -1,0 +1,315 @@
+<!DOCTYPE html>
+
+<html lang="pt-BR"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&amp;family=Inter:wght@400;500;600&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script id="tailwind-config">
+      tailwind.config = {
+        darkMode: "class",
+        theme: {
+          extend: {
+            colors: {
+              "on-secondary-fixed": "#001b3e",
+              "error": "#ba1a1a",
+              "tertiary-fixed-dim": "#88d982",
+              "on-primary-fixed": "#341100",
+              "tertiary-container": "#5aa958",
+              "primary": "#9f4200",
+              "on-surface-variant": "#584237",
+              "secondary": "#005cba",
+              "surface-container-lowest": "#ffffff",
+              "on-error": "#ffffff",
+              "on-background": "#191c1e",
+              "on-tertiary-fixed-variant": "#005312",
+              "tertiary-fixed": "#a3f69c",
+              "on-secondary-fixed-variant": "#00458e",
+              "error-container": "#ffdad6",
+              "surface-dim": "#d8dadd",
+              "secondary-fixed-dim": "#aac7ff",
+              "inverse-primary": "#ffb692",
+              "inverse-surface": "#2d3133",
+              "on-surface": "#191c1e",
+              "on-tertiary": "#ffffff",
+              "outline": "#8c7165",
+              "surface-variant": "#e0e3e6",
+              "primary-fixed": "#ffdbcb",
+              "surface": "#f7f9fc",
+              "on-tertiary-container": "#003909",
+              "surface-container-highest": "#e0e3e6",
+              "on-tertiary-fixed": "#002204",
+              "on-secondary": "#ffffff",
+              "on-secondary-container": "#002d61",
+              "on-error-container": "#93000a",
+              "outline-variant": "#e0c0b2",
+              "surface-container-high": "#e6e8eb",
+              "inverse-on-surface": "#eff1f4",
+              "surface-tint": "#9f4200",
+              "primary-container": "#f47121",
+              "surface-container-low": "#f2f4f7",
+              "surface-bright": "#f7f9fc",
+              "on-primary-fixed-variant": "#793000",
+              "secondary-container": "#5095fe",
+              "on-primary": "#ffffff",
+              "background": "#f7f9fc",
+              "surface-container": "#eceef1",
+              "secondary-fixed": "#d7e3ff",
+              "on-primary-container": "#552000",
+              "primary-fixed-dim": "#ffb692",
+              "tertiary": "#1b6d24"
+            },
+            fontFamily: {
+              "headline": ["Plus Jakarta Sans"],
+              "body": ["Inter"],
+              "label": ["Inter"]
+            },
+            borderRadius: {"DEFAULT": "0.25rem", "lg": "0.5rem", "xl": "0.75rem", "full": "9999px"},
+          },
+        },
+      }
+    </script>
+<style>
+      .material-symbols-outlined {
+        font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24;
+      }
+      .tonal-shift-no-border {
+        border: none !important;
+      }
+      .glass-effect {
+        backdrop-filter: blur(12px);
+        -webkit-backdrop-filter: blur(12px);
+      }
+    </style>
+</head>
+<body class="bg-background font-body text-on-surface antialiased">
+<!-- SideNavBar -->
+<aside class="h-screen w-64 fixed left-0 top-0 bg-white dark:bg-slate-900 font-['Plus_Jakarta_Sans'] antialiased flex flex-col py-6 px-4 z-50">
+<div class="mb-10 px-2">
+<h1 class="text-xl font-bold text-[#9f4200] dark:text-[#f47121] tracking-tight">Pecuária Pro</h1>
+<p class="text-xs text-slate-500 font-medium">Painel Editorial</p>
+</div>
+<nav class="flex-1 space-y-1">
+<a class="flex items-center gap-3 px-3 py-2.5 rounded-lg text-slate-500 dark:text-slate-400 hover:text-[#9f4200] transition-colors hover:bg-[#f2f4f7] dark:hover:bg-slate-800 duration-200" href="#">
+<span class="material-symbols-outlined">dashboard</span>
+<span class="text-sm">Dashboard</span>
+</a>
+<a class="flex items-center gap-3 px-3 py-2.5 rounded-lg text-[#9f4200] dark:text-[#f47121] font-semibold border-l-4 border-[#9f4200] bg-[#f2f4f7]/50 dark:bg-slate-800/50" href="#">
+<span class="material-symbols-outlined" style="font-variation-settings: 'FILL' 1;">agriculture</span>
+<span class="text-sm">Gado</span>
+</a>
+<a class="flex items-center gap-3 px-3 py-2.5 rounded-lg text-slate-500 dark:text-slate-400 hover:text-[#9f4200] transition-colors hover:bg-[#f2f4f7] dark:hover:bg-slate-800 duration-200" href="#">
+<span class="material-symbols-outlined">grass</span>
+<span class="text-sm">Ração</span>
+</a>
+<a class="flex items-center gap-3 px-3 py-2.5 rounded-lg text-slate-500 dark:text-slate-400 hover:text-[#9f4200] transition-colors hover:bg-[#f2f4f7] dark:hover:bg-slate-800 duration-200" href="#">
+<span class="material-symbols-outlined">science</span>
+<span class="text-sm">Fórmulas</span>
+</a>
+<a class="flex items-center gap-3 px-3 py-2.5 rounded-lg text-slate-500 dark:text-slate-400 hover:text-[#9f4200] transition-colors hover:bg-[#f2f4f7] dark:hover:bg-slate-800 duration-200" href="#">
+<span class="material-symbols-outlined">monitor_weight</span>
+<span class="text-sm">Pesagem</span>
+</a>
+<a class="flex items-center gap-3 px-3 py-2.5 rounded-lg text-slate-500 dark:text-slate-400 hover:text-[#9f4200] transition-colors hover:bg-[#f2f4f7] dark:hover:bg-slate-800 duration-200" href="#">
+<span class="material-symbols-outlined">payments</span>
+<span class="text-sm">Financeiro</span>
+</a>
+<a class="flex items-center gap-3 px-3 py-2.5 rounded-lg text-slate-500 dark:text-slate-400 hover:text-[#9f4200] transition-colors hover:bg-[#f2f4f7] dark:hover:bg-slate-800 duration-200" href="#">
+<span class="material-symbols-outlined">analytics</span>
+<span class="text-sm">Relatórios</span>
+</a>
+<a class="flex items-center gap-3 px-3 py-2.5 rounded-lg text-slate-500 dark:text-slate-400 hover:text-[#9f4200] transition-colors hover:bg-[#f2f4f7] dark:hover:bg-slate-800 duration-200" href="#">
+<span class="material-symbols-outlined">settings</span>
+<span class="text-sm">Configurações</span>
+</a>
+</nav>
+<div class="mt-auto pt-6 border-t border-slate-100 dark:border-slate-800">
+<div class="flex items-center gap-3 px-2">
+<div class="w-10 h-10 rounded-full bg-surface-container-highest overflow-hidden">
+<img class="w-full h-full object-cover" data-alt="portrait of a professional ranch manager wearing a hat in a sunlit outdoor setting" src="https://lh3.googleusercontent.com/aida-public/AB6AXuDXhVqPxqCRTl4QKyRG2P_WDz2bLqQwf6cFZ5iNfGpoxZL7XPcZnrijzVrIAqx0IyD_bEAt-DAJ6DADK2ny6cAEW_Yl5BijGzcV5kAsxxIUY5wUVD8Xhi6xMni-LEDd8J1N6OYE0I11lBvkxK8fP8kBhElDCaGlrKtMUSU006LEQNrnVD6FweggVon8nCCvF5bekeZ-9Jz17YoNFFtjyGJCqNdyJZwcZxR-i1I4pjqMm5WXMQdW5pr2r6AUkNk3Nh6KrCrq9H7YkNoA"/>
+</div>
+<div>
+<p class="text-sm font-semibold text-on-surface">Ricardo Silva</p>
+<p class="text-xs text-on-surface-variant">Gerente de Campo</p>
+</div>
+</div>
+</div>
+</aside>
+<!-- TopNavBar -->
+<header class="fixed top-0 right-0 w-[calc(100%-16rem)] h-16 z-40 bg-white/80 dark:bg-slate-900/80 backdrop-blur-md glass-effect flex justify-between items-center px-8 tonal-shift-no-border shadow-sm dark:shadow-none">
+<div class="flex items-center flex-1 max-w-md">
+<div class="relative w-full">
+<span class="material-symbols-outlined absolute left-3 top-1/2 -translate-y-1/2 text-on-surface-variant text-lg">search</span>
+<input class="w-full pl-10 pr-4 py-2 bg-surface-container-low border-none rounded-lg text-sm focus:ring-2 focus:ring-primary/20 transition-all outline-none" placeholder="Buscar gado, lote ou vacinas..." type="text"/>
+</div>
+</div>
+<div class="flex items-center gap-6">
+<div class="flex items-center gap-4">
+<button class="text-slate-600 dark:text-slate-300 hover:opacity-80 transition-opacity relative">
+<span class="material-symbols-outlined">notifications</span>
+<span class="absolute top-0 right-0 w-2 h-2 bg-primary rounded-full border-2 border-white"></span>
+</button>
+<button class="text-slate-600 dark:text-slate-300 hover:opacity-80 transition-opacity">
+<span class="material-symbols-outlined">account_circle</span>
+</button>
+</div>
+<button class="bg-primary hover:bg-primary-container text-white px-4 py-2 rounded-lg text-sm font-semibold transition-all flex items-center gap-2 shadow-sm">
+<span class="material-symbols-outlined text-sm">add</span>
+                Adicionar Campo
+            </button>
+</div>
+</header>
+<!-- Main Content -->
+<main class="ml-64 pt-24 pb-12 px-12 min-h-screen">
+<div class="max-w-4xl mx-auto">
+<!-- Breadcrumbs -->
+<nav class="flex items-center gap-2 text-sm text-on-surface-variant mb-6 font-label">
+<a class="hover:text-primary transition-colors" href="#">Gado</a>
+<span class="material-symbols-outlined text-sm">chevron_right</span>
+<span class="font-semibold text-on-surface">Novo Cadastro</span>
+</nav>
+<!-- Header Section -->
+<div class="flex justify-between items-end mb-10">
+<div class="space-y-1">
+<h2 class="text-3xl font-bold font-headline tracking-tight text-on-surface">Cadastro de Animal</h2>
+<p class="text-on-surface-variant max-w-md">Registre as informações essenciais para o controle individual de produtividade e saúde.</p>
+</div>
+<div class="hidden lg:block">
+<div class="bg-surface-container-low p-4 rounded-xl flex items-center gap-4">
+<div class="w-12 h-12 rounded-lg bg-primary/10 flex items-center justify-center text-primary">
+<span class="material-symbols-outlined text-2xl">info</span>
+</div>
+<div>
+<p class="text-xs font-label text-on-surface-variant uppercase tracking-wider">Status do Rebanho</p>
+<p class="text-lg font-bold font-headline text-on-surface">1,248 Cabeças</p>
+</div>
+</div>
+</div>
+</div>
+<!-- Form Card -->
+<div class="bg-surface-container-lowest rounded-xl shadow-none p-8 relative overflow-hidden">
+<!-- Visual Accent -->
+<div class="absolute top-0 left-0 w-1 h-full bg-primary"></div>
+<form class="space-y-10">
+<!-- Section: Identificação Básica -->
+<section>
+<div class="flex items-center gap-3 mb-6">
+<span class="w-8 h-8 rounded-full bg-primary text-white flex items-center justify-center text-sm font-bold">1</span>
+<h3 class="text-lg font-semibold font-headline">Identificação e Raça</h3>
+</div>
+<div class="grid grid-cols-1 md:grid-cols-2 gap-8">
+<div class="space-y-2">
+<label class="text-sm font-semibold text-on-surface-variant block px-1" for="id">Identificação (Brinco/TAG)</label>
+<input class="w-full px-4 py-3 bg-surface-container-low border-transparent border-b-2 border-b-transparent focus:border-b-primary focus:ring-0 rounded-lg transition-all text-on-surface placeholder:text-outline/50" id="id" placeholder="Ex: NEL-2024-001" type="text"/>
+<p class="text-xs text-on-surface-variant/70 px-1 italic">Use o código oficial gravado no brinco.</p>
+</div>
+<div class="space-y-2">
+<label class="text-sm font-semibold text-on-surface-variant block px-1" for="raca">Raça</label>
+<div class="relative">
+<select class="w-full appearance-none px-4 py-3 bg-surface-container-low border-transparent border-b-2 border-b-transparent focus:border-b-primary focus:ring-0 rounded-lg transition-all text-on-surface cursor-pointer" id="raca">
+<option disabled="" selected="" value="">Selecione a raça</option>
+<option value="nelore">Nelore</option>
+<option value="angus">Angus</option>
+<option value="brahman">Brahman</option>
+<option value="senepol">Senepol</option>
+<option value="cruzamento">Cruzamento Industrial</option>
+</select>
+<span class="material-symbols-outlined absolute right-3 top-1/2 -translate-y-1/2 pointer-events-none text-on-surface-variant">expand_more</span>
+</div>
+</div>
+</div>
+</section>
+<!-- Section: Dados Físicos -->
+<section>
+<div class="flex items-center gap-3 mb-6">
+<span class="w-8 h-8 rounded-full bg-primary text-white flex items-center justify-center text-sm font-bold">2</span>
+<h3 class="text-lg font-semibold font-headline">Informações de Campo</h3>
+</div>
+<div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+<div class="space-y-2">
+<label class="text-sm font-semibold text-on-surface-variant block px-1" for="idade">Idade (Meses)</label>
+<div class="relative">
+<input class="w-full px-4 py-3 bg-surface-container-low border-transparent border-b-2 border-b-transparent focus:border-b-primary focus:ring-0 rounded-lg transition-all text-on-surface" id="idade" placeholder="0" type="number"/>
+<span class="absolute right-4 top-1/2 -translate-y-1/2 text-xs font-bold text-on-surface-variant/40">MESES</span>
+</div>
+</div>
+<div class="space-y-2">
+<label class="text-sm font-semibold text-on-surface-variant block px-1" for="peso">Peso Inicial (kg)</label>
+<div class="relative">
+<input class="w-full px-4 py-3 bg-surface-container-low border-transparent border-b-2 border-b-transparent focus:border-b-primary focus:ring-0 rounded-lg transition-all text-on-surface" id="peso" placeholder="0.00" step="0.01" type="number"/>
+<span class="absolute right-4 top-1/2 -translate-y-1/2 text-xs font-bold text-on-surface-variant/40">KG</span>
+</div>
+</div>
+<div class="space-y-2">
+<label class="text-sm font-semibold text-on-surface-variant block px-1" for="lote">Lote / Piquete</label>
+<div class="relative">
+<select class="w-full appearance-none px-4 py-3 bg-surface-container-low border-transparent border-b-2 border-b-transparent focus:border-b-primary focus:ring-0 rounded-lg transition-all text-on-surface cursor-pointer" id="lote">
+<option disabled="" selected="" value="">Vincular lote</option>
+<option value="lote-01">Recria Sul - Lote 01</option>
+<option value="lote-04">Engorda Norte - Lote 04</option>
+<option value="maternidade">Maternidade</option>
+<option value="quarentena">Quarentena</option>
+</select>
+<span class="material-symbols-outlined absolute right-3 top-1/2 -translate-y-1/2 pointer-events-none text-on-surface-variant">layers</span>
+</div>
+</div>
+</div>
+</section>
+<!-- Profile Image / Preview Area -->
+<section class="bg-surface-container-low rounded-xl p-6 border border-dashed border-outline-variant/50">
+<div class="flex flex-col md:flex-row items-center gap-8">
+<div class="w-32 h-32 rounded-xl bg-white flex flex-col items-center justify-center border-2 border-dashed border-outline-variant/30 text-outline-variant hover:text-primary hover:border-primary transition-all cursor-pointer group">
+<span class="material-symbols-outlined text-3xl group-hover:scale-110 transition-transform">add_a_photo</span>
+<span class="text-[10px] font-bold mt-2 uppercase">Foto</span>
+</div>
+<div class="flex-1 text-center md:text-left space-y-2">
+<h4 class="font-semibold text-on-surface">Foto de Identificação</h4>
+<p class="text-sm text-on-surface-variant">Anexe uma imagem lateral do animal para facilitar a identificação visual rápida no campo. Suporta JPG ou PNG até 5MB.</p>
+</div>
+</div>
+</section>
+<!-- Footer Actions -->
+<div class="flex flex-col sm:flex-row items-center justify-end gap-4 pt-6 mt-10 border-t border-surface-container-high">
+<button class="w-full sm:w-auto px-8 py-3 rounded-lg text-primary font-semibold hover:bg-surface-container-low transition-colors text-sm" type="button">
+                            Cancelar
+                        </button>
+<button class="w-full sm:w-auto px-10 py-3 rounded-lg bg-primary text-white font-bold hover:bg-primary-container transition-all text-sm shadow-md shadow-primary/20 flex items-center justify-center gap-2" type="submit">
+                            Confirmar Cadastro
+                            <span class="material-symbols-outlined text-sm">check_circle</span>
+</button>
+</div>
+</form>
+</div>
+<!-- Contextual Info Cards (Bento Style) -->
+<div class="grid grid-cols-1 md:grid-cols-3 gap-6 mt-12">
+<div class="bg-surface-container-low p-6 rounded-xl flex flex-col justify-between">
+<span class="material-symbols-outlined text-secondary mb-4">history_edu</span>
+<div>
+<h4 class="text-sm font-bold text-on-surface mb-1">Rastreabilidade</h4>
+<p class="text-xs text-on-surface-variant leading-relaxed">Todos os cadastros geram um histórico imutável para auditoria e selo de qualidade.</p>
+</div>
+</div>
+<div class="bg-surface-container-low p-6 rounded-xl flex flex-col justify-between">
+<span class="material-symbols-outlined text-tertiary mb-4">verified_user</span>
+<div>
+<h4 class="text-sm font-bold text-on-surface mb-1">Dados Seguros</h4>
+<p class="text-xs text-on-surface-variant leading-relaxed">Suas informações são criptografadas e armazenadas seguindo protocolos internacionais.</p>
+</div>
+</div>
+<div class="bg-primary/5 p-6 rounded-xl flex flex-col justify-between border border-primary/10">
+<span class="material-symbols-outlined text-primary mb-4">help_outline</span>
+<div>
+<h4 class="text-sm font-bold text-primary mb-1">Precisa de Ajuda?</h4>
+<p class="text-xs text-on-primary-fixed-variant leading-relaxed">Consulte nosso guia de manejo ou entre em contato com o suporte técnico.</p>
+</div>
+</div>
+</div>
+</div>
+</main>
+<!-- Visual Background Element -->
+<div class="fixed top-0 right-0 -z-10 w-1/3 h-full overflow-hidden opacity-5 pointer-events-none">
+<img class="w-full h-full object-cover" data-alt="close-up of a nelore cattle ear showing a yellow identification tag against a blurred green pasture background" src="https://lh3.googleusercontent.com/aida-public/AB6AXuA8MVzlTUqqcLfz1hSdxzgknFSwVDfAN8cwVB2sdL2Kv8ZSpurvdAquaUGyjSvNSJPI4i97LSDX3NxtP9taCSHfOTfaVvj5BtreTNrhJgNlDR8DlCFXXGHeEmqyplSF9rJucX3liOSmFa5ODe3PEeVpLvXrs-Uiv5w8b5NvLKpB4I1JFeY-F8Uo06GVLhVMyRYfJ_yucHCZJMzwutQ6gXDHRxIb9E-m2SpIGTkqU48N9z8BCNtppSzTNCGW9y0NlR1vb4wH4jyiHNkS"/>
+</div>
+</body></html>
