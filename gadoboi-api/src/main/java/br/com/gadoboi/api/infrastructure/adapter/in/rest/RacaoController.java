@@ -46,16 +46,14 @@ public class RacaoController {
 
     @Operation(summary = "Criar ração")
     @PostMapping
-    public ResponseEntity<Racao> criar(@Valid @RequestBody RacaoRequest req,
-                                        @AuthenticationPrincipal ClienteDetails auth) {
+    public ResponseEntity<Racao> criar(@Valid @RequestBody RacaoRequest req, @AuthenticationPrincipal ClienteDetails auth) {
         return ResponseEntity.status(HttpStatus.CREATED)
                 .body(racaoUseCase.criar(toRacao(null, req), auth.id()));
     }
 
     @Operation(summary = "Atualizar ração")
     @PutMapping("/{id}")
-    public Racao atualizar(@PathVariable Long id, @Valid @RequestBody RacaoRequest req,
-                            @AuthenticationPrincipal ClienteDetails auth) {
+    public Racao atualizar(@PathVariable Long id, @Valid @RequestBody RacaoRequest req, @AuthenticationPrincipal ClienteDetails auth) {
         return racaoUseCase.atualizar(id, toRacao(id, req), auth.id());
     }
 

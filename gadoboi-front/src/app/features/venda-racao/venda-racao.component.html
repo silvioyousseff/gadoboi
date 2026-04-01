@@ -1,0 +1,470 @@
+<div class="p-8">
+    <!-- Header -->
+    <div class="flex items-center justify-between mb-8">
+        <div>
+            <h2 class="text-3xl font-bold text-on-surface font-headline">Rações para Venda</h2>
+            <p class="text-on-surface-variant mt-1 text-sm">
+                Gerencie as rações destinadas à comercialização
+            </p>
+        </div>
+        <button (click)="openCreate()"
+            class="flex items-center gap-2 px-5 py-2.5 bg-secondary text-on-secondary font-semibold rounded-lg hover:bg-secondary-container transition-colors text-sm">
+            <span class="material-symbols-outlined text-[18px]">add</span>
+            Nova Ração de Venda
+        </button>
+    </div>
+
+    <!-- Toast -->
+    @if (toast()) {
+    <div
+        class="fixed top-6 right-6 z-50 px-5 py-3 bg-tertiary text-on-tertiary rounded-lg shadow-lg text-sm font-semibold animate-pulse">
+        {{ toast() }}
+    </div>
+    }
+
+    <!-- Error -->
+    @if (error()) {
+    <div class="mb-4 p-3 bg-error-container rounded-lg text-on-error-container text-sm">
+        {{ error() }}
+    </div>
+    }
+
+    <!-- Table -->
+    <div class="bg-surface-container-lowest rounded-xl overflow-hidden">
+        @if (loading()) {
+        <div class="flex items-center justify-center py-16 text-on-surface-variant">
+            <span class="material-symbols-outlined animate-spin mr-2">progress_activity</span>
+            Carregando...
+        </div>
+        } @else if (items().length === 0) {
+        <div class="flex flex-col items-center justify-center py-16 text-on-surface-variant">
+            <span class="material-symbols-outlined text-5xl mb-3 opacity-30">sell</span>
+            <p class="text-sm">Nenhuma ração de venda cadastrada</p>
+            <button (click)="openCreate()"
+                class="mt-4 text-secondary text-sm font-semibold hover:opacity-80 transition-colors">
+                Cadastrar primeira ração de venda →
+            </button>
+        </div>
+        } @else {
+        <table class="w-full">
+            <thead>
+                <tr class="bg-surface-container-low">
+                    <th
+                        class="text-left px-6 py-3 text-xs font-semibold text-on-surface-variant uppercase tracking-wider">
+                        Nome
+                    </th>
+                    <th
+                        class="text-left px-6 py-3 text-xs font-semibold text-on-surface-variant uppercase tracking-wider">
+                        Gado
+                    </th>
+                    <th
+                        class="text-left px-6 py-3 text-xs font-semibold text-on-surface-variant uppercase tracking-wider">
+                        Região
+                    </th>
+                    <th
+                        class="text-left px-6 py-3 text-xs font-semibold text-on-surface-variant uppercase tracking-wider">
+                        Ingredientes
+                    </th>
+                    <th
+                        class="text-right px-6 py-3 text-xs font-semibold text-on-surface-variant uppercase tracking-wider">
+                        Ações
+                    </th>
+                </tr>
+            </thead>
+            <tbody class="divide-y divide-surface-container-low">
+                @for (item of items(); track item.id) {
+                <tr class="hover:bg-surface-container-low/50 transition-colors">
+                    <td class="px-6 py-4 text-sm text-on-surface font-medium">
+                        {{ item.nomeRacao }}
+                        <span
+                            class="ml-2 px-2 py-0.5 bg-secondary/10 text-secondary rounded text-xs font-semibold">Venda</span>
+                    </td>
+                    <td class="px-6 py-4 text-sm text-on-surface-variant">
+                        {{ gadoNome(item.gadoId) }}
+                    </td>
+                    <td class="px-6 py-4 text-sm text-on-surface-variant">
+                        {{ regiaoNome(item.regiaoId) }}
+                    </td>
+                    <td class="px-6 py-4 text-sm text-on-surface-variant">
+                        {{ item.insumos.length || 0 }} insumo(s)
+                    </td>
+                    <td class="px-6 py-4 text-right">
+                        <div class="flex items-center justify-end gap-2">
+                            <button (click)="openVenda(item)"
+                                class="p-1.5 text-on-surface-variant hover:text-secondary hover:bg-secondary/10 rounded-lg transition-colors">
+                                <span class="material-symbols-outlined text-[18px]">show</span>
+                            </button>
+                            <button (click)="openEdit(item)"
+                                class="p-1.5 text-on-surface-variant hover:text-secondary hover:bg-secondary/10 rounded-lg transition-colors">
+                                <span class="material-symbols-outlined text-[18px]">edit</span>
+                            </button>
+                            <button (click)="onDelete(item.id!)"
+                                class="p-1.5 text-on-surface-variant hover:text-error hover:bg-error/10 rounded-lg transition-colors">
+                                <span class="material-symbols-outlined text-[18px]">delete</span>
+                            </button>
+                        </div>
+                    </td>
+                </tr>
+                }
+            </tbody>
+        </table>
+        }
+    </div>
+</div>
+
+<!-- Modal -->
+@if (showModal()) {
+<div class="fixed inset-0 z-50 flex items-center justify-center p-4">
+    <div class="absolute inset-0 bg-black/40 backdrop-blur-sm" (click)="closeModal()"></div>
+    <div class="relative bg-surface-container-lowest rounded-xl w-full max-w-2xl shadow-2xl flex flex-col max-h-[90vh]">
+        <!-- Modal Header -->
+        <div class="flex items-center justify-between px-6 py-5 border-b border-surface-container-low flex-shrink-0">
+            <div class="flex items-center gap-3">
+                <h3 class="text-lg font-semibold text-on-surface font-headline">
+                    {{ editItem() ? 'Editar Ração de Venda' : 'Nova Ração de Venda' }}
+                </h3>
+                <span class="px-2 py-0.5 bg-secondary/10 text-secondary rounded text-xs font-semibold">Venda</span>
+            </div>
+            <button (click)="closeModal()"
+                class="p-1 text-on-surface-variant hover:text-on-surface rounded-lg transition-colors">
+                <span class="material-symbols-outlined">close</span>
+            </button>
+        </div>
+
+        <!-- Modal Body (scrollable) -->
+        <div class="overflow-y-auto flex-1 px-6 py-5">
+            <form [formGroup]="form" class="space-y-6">
+                <!-- Section 1: Basic Info -->
+                <div>
+                    <h4 class="text-xs font-bold text-on-surface-variant uppercase tracking-wider mb-3">
+                        Informações Básicas
+                    </h4>
+                    <div>
+                        <label
+                            class="block text-xs font-semibold text-on-surface-variant mb-1.5 uppercase tracking-wide">Nome
+                            da Ração</label>
+                        <input formControlName="nomeRacao" type="text" placeholder="Ex: Ração Premium Venda..."
+                            class="w-full px-4 py-2.5 bg-surface-container-highest rounded-lg text-sm text-on-surface placeholder:text-on-surface-variant/50 focus:outline-none focus:ring-2 focus:ring-secondary/30 transition-all" />
+                        @if (form.get('nomeRacao')?.invalid && form.get('nomeRacao')?.touched) {
+                        <p class="mt-1 text-xs text-error">Nome obrigatório</p>
+                        }
+                    </div>
+                </div>
+
+                <!-- Section 2: Links -->
+                <div>
+                    <h4 class="text-xs font-bold text-on-surface-variant uppercase tracking-wider mb-3">
+                        Vínculo
+                    </h4>
+                    <div class="grid grid-cols-3 gap-3">
+                        <div>
+                            <label
+                                class="block text-xs font-semibold text-on-surface-variant mb-1.5 uppercase tracking-wide">Gado</label>
+                            <select formControlName="gadoId"
+                                class="w-full px-4 py-2.5 bg-surface-container-highest rounded-lg text-sm text-on-surface focus:outline-none focus:ring-2 focus:ring-secondary/30 transition-all">
+                                <option value="">Selecione</option>
+                                @for (g of gados(); track g.id) {
+                                <option [value]="g.id">{{ g.nomeGado }}</option>
+                                }
+                            </select>
+                        </div>
+                        <div>
+                            <label
+                                class="block text-xs font-semibold text-on-surface-variant mb-1.5 uppercase tracking-wide">Região</label>
+                            <select formControlName="regiaoId"
+                                class="w-full px-4 py-2.5 bg-surface-container-highest rounded-lg text-sm text-on-surface focus:outline-none focus:ring-2 focus:ring-secondary/30 transition-all">
+                                <option value="">Selecione</option>
+                                @for (r of regioes(); track r.id) {
+                                <option [value]="r.id">{{ r.nomeRegiao }}</option>
+                                }
+                            </select>
+                        </div>
+                        <div>
+                            <label
+                                class="block text-xs font-semibold text-on-surface-variant mb-1.5 uppercase tracking-wide">Manejo</label>
+                            <select formControlName="manejoId"
+                                class="w-full px-4 py-2.5 bg-surface-container-highest rounded-lg text-sm text-on-surface focus:outline-none focus:ring-2 focus:ring-secondary/30 transition-all">
+                                <option value="">Selecione</option>
+                                @for (m of manejos(); track m.id) {
+                                <option [value]="m.id">{{ m.nomeManejo }}</option>
+                                }
+                            </select>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Section 3: Quantities -->
+                <div>
+                    <h4 class="text-xs font-bold text-on-surface-variant uppercase tracking-wider mb-3">
+                        Quantidades
+                    </h4>
+                    <div class="grid grid-cols-2 gap-3">
+                        <div>
+                            <label
+                                class="block text-xs font-semibold text-on-surface-variant mb-1.5 uppercase tracking-wide">Qtd.
+                                de Gado</label>
+                            <input formControlName="qtdGado" type="number" min="0" placeholder="0"
+                                class="w-full px-4 py-2.5 bg-surface-container-highest rounded-lg text-sm text-on-surface focus:outline-none focus:ring-2 focus:ring-secondary/30 transition-all" />
+                        </div>
+                        <div>
+                            <label
+                                class="block text-xs font-semibold text-on-surface-variant mb-1.5 uppercase tracking-wide">Tratamentos/dia</label>
+                            <input formControlName="qtdTratamentoDia" type="number" min="0" placeholder="0"
+                                class="w-full px-4 py-2.5 bg-surface-container-highest rounded-lg text-sm text-on-surface focus:outline-none focus:ring-2 focus:ring-secondary/30 transition-all" />
+                        </div>
+                        <div>
+                            <label
+                                class="block text-xs font-semibold text-on-surface-variant mb-1.5 uppercase tracking-wide">Peso
+                                Inicial (kg)</label>
+                            <input formControlName="pesoInicial" type="number" min="0" step="0.1" placeholder="0"
+                                class="w-full px-4 py-2.5 bg-surface-container-highest rounded-lg text-sm text-on-surface focus:outline-none focus:ring-2 focus:ring-secondary/30 transition-all" />
+                        </div>
+                        <div>
+                            <label
+                                class="block text-xs font-semibold text-on-surface-variant mb-1.5 uppercase tracking-wide">Taxa
+                                de Rendimento (%)</label>
+                            <input formControlName="taxaRendimento" type="number" min="0" max="100" step="0.01"
+                                placeholder="0"
+                                class="w-full px-4 py-2.5 bg-surface-container-highest rounded-lg text-sm text-on-surface focus:outline-none focus:ring-2 focus:ring-secondary/30 transition-all" />
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Section 4: Ingredients -->
+                <div>
+                    <div class="flex items-center justify-between mb-3">
+                        <h4 class="text-xs font-bold text-on-surface-variant uppercase tracking-wider">
+                            Ingredientes
+                        </h4>
+                        <button type="button" (click)="addInsumo()"
+                            class="text-xs text-secondary font-semibold hover:opacity-80 transition-colors flex items-center gap-1">
+                            <span class="material-symbols-outlined text-[16px]">add</span>
+                            Adicionar Insumo
+                        </button>
+                    </div>
+                    <div class="space-y-2" formArrayName="insumos">
+                        @for (ctrl of insumosArray.controls; track $index) {
+                        <div [formGroupName]="$index" class="flex gap-2 items-start">
+                            <select formControlName="insumoId"
+                                class="flex-1 px-3 py-2 bg-surface-container-highest rounded-lg text-sm text-on-surface focus:outline-none focus:ring-2 focus:ring-secondary/30 transition-all">
+                                <option value="">Selecione insumo</option>
+                                @for (ins of insumos(); track ins.id) {
+                                <option [value]="ins.id">{{ ins.nomeInsumo }}</option>
+                                }
+                            </select>
+                            <input formControlName="qtdInsumo" type="number" min="0" step="0.01" placeholder="Qtd (kg)"
+                                class="w-28 px-3 py-2 bg-surface-container-highest rounded-lg text-sm text-on-surface focus:outline-none focus:ring-2 focus:ring-secondary/30 transition-all" />
+                            <button type="button" (click)="removeInsumo($index)"
+                                class="p-2 text-on-surface-variant hover:text-error hover:bg-error/10 rounded-lg transition-colors flex-shrink-0">
+                                <span class="material-symbols-outlined text-[18px]">remove_circle</span>
+                            </button>
+                        </div>
+                        }
+                        @if (insumosArray.length === 0) {
+                        <p class="text-xs text-on-surface-variant/60 italic py-2">
+                            Nenhum ingrediente adicionado ainda.
+                        </p>
+                        }
+                    </div>
+                </div>
+
+                <!-- Section 5: Methods -->
+                <div>
+                    <div class="flex items-center justify-between mb-3">
+                        <h4 class="text-xs font-bold text-on-surface-variant uppercase tracking-wider">
+                            Métodos
+                        </h4>
+                        <button type="button" (click)="addMetodo()"
+                            class="text-xs text-secondary font-semibold hover:opacity-80 transition-colors flex items-center gap-1">
+                            <span class="material-symbols-outlined text-[16px]">add</span>
+                            Adicionar Método
+                        </button>
+                    </div>
+                    <div class="space-y-2" formArrayName="metodos">
+                        @for (ctrl of metodosArray.controls; track $index) {
+                        <div class="flex gap-2 items-center">
+                            <input [formControlName]="$index" type="text" placeholder="Descreva o método..."
+                                class="flex-1 px-3 py-2 bg-surface-container-highest rounded-lg text-sm text-on-surface focus:outline-none focus:ring-2 focus:ring-secondary/30 transition-all" />
+                            <button type="button" (click)="removeMetodo($index)"
+                                class="p-2 text-on-surface-variant hover:text-error hover:bg-error/10 rounded-lg transition-colors flex-shrink-0">
+                                <span class="material-symbols-outlined text-[18px]">remove_circle</span>
+                            </button>
+                        </div>
+                        }
+                        @if (metodosArray.length === 0) {
+                        <p class="text-xs text-on-surface-variant/60 italic py-2">
+                            Nenhum método adicionado ainda.
+                        </p>
+                        }
+                    </div>
+                </div>
+            </form>
+        </div>
+
+        <!-- Modal Footer -->
+        <div class="flex gap-3 px-6 py-4 border-t border-surface-container-low flex-shrink-0">
+            <button type="button" (click)="closeModal()"
+                class="flex-1 py-2.5 bg-surface-container-high text-on-surface font-semibold rounded-lg hover:bg-surface-container-highest transition-colors text-sm">
+                Cancelar
+            </button>
+            <button type="button" (click)="onSave()" [disabled]="savingItem() || form.get('nomeRacao')?.invalid"
+                class="flex-1 py-2.5 bg-secondary text-on-secondary font-semibold rounded-lg hover:bg-secondary-container transition-colors disabled:opacity-50 disabled:cursor-not-allowed text-sm">
+                @if (savingItem()) {
+                Salvando...
+                } @else {
+                Salvar
+                }
+            </button>
+        </div>
+    </div>
+</div>
+}
+
+
+<!-- Modal -->
+@if (showModalVenda()) {
+<div class="fixed inset-0 z-50 flex items-center justify-center p-4">
+    <div class="absolute inset-0 bg-black/40 backdrop-blur-sm" (click)="closeModalVenda()"></div>
+    <div class="relative bg-surface-container-lowest rounded-xl w-full max-w-2xl shadow-2xl flex flex-col max-h-[90vh]">
+        <!-- Modal Header -->
+        <div class="flex items-center justify-between px-6 py-5 border-b border-surface-container-low flex-shrink-0">
+            <div class="flex items-center gap-3">
+                <h3 class="text-lg font-semibold text-on-surface font-headline">
+                    {{ editItem() ? 'Editar Ração de Venda' : 'Nova Ração de Venda' }}
+                </h3>
+                <span class="px-2 py-0.5 bg-secondary/10 text-secondary rounded text-xs font-semibold">Venda</span>
+            </div>
+            <button (click)="closeModalVenda()"
+                class="p-1 text-on-surface-variant hover:text-on-surface rounded-lg transition-colors">
+                <span class="material-symbols-outlined">close</span>
+            </button>
+        </div>
+
+        <!-- Modal Body (scrollable) -->
+        <div class="overflow-y-auto flex-1 px-6 py-5">
+
+            <!-- Section 1: Basic Info -->
+            <div>
+                <h4 class="text-xs font-bold text-on-surface-variant uppercase tracking-wider mb-3">
+                    Informações Básicas
+                </h4>
+                <div>
+                    <label
+                        class="block text-xs font-semibold text-on-surface-variant mb-1.5 uppercase tracking-wide">Nome
+                        da Ração:</label>
+                    <div class="w-full px-4 py-2.5 bg-surface-container-highest rounded-lg text-sm text-on-surface">
+                        {{ vendaItem()?.nomeRacao }}
+                    </div>
+                </div>
+            </div>
+
+            <!-- Section 2: Links -->
+            <div>
+                <h4 class="text-xs font-bold text-on-surface-variant uppercase tracking-wider mb-3">
+                    Vínculo
+                </h4>
+                <div class="grid grid-cols-3 gap-3">
+                    <div>
+                        <label
+                            class="block text-xs font-semibold text-on-surface-variant mb-1.5 uppercase tracking-wide">Gado</label>
+                        @for (g of gados(); track g.id) {
+                            @if(g.id == vendaItem()?.gadoId){
+                                <option [value]="g.id">{{ g.nomeGado }}</option>
+                            }
+                        }
+                    </div>
+                    <div>
+                        <label
+                            class="block text-xs font-semibold text-on-surface-variant mb-1.5 uppercase tracking-wide">Região</label>
+                        @for (r of regioes(); track r.id) {
+                            @if(r.id == vendaItem()?.regiaoId){
+                                <option [value]="r.id">{{ r.nomeRegiao }}</option>
+                            }
+                        }
+                    </div>
+                    <div>
+                        <label
+                            class="block text-xs font-semibold text-on-surface-variant mb-1.5 uppercase tracking-wide">Manejo</label>
+                        @for (m of manejos(); track m.id) {
+                            @if(m.id == vendaItem()?.manejoId){
+                                <option [value]="m.id">{{ m.nomeManejo }}</option>
+                            }
+                        }
+                    </div>
+                </div>
+            </div>
+
+            <!-- Section 3: Quantities -->
+            <div>
+                <h4 class="text-xs font-bold text-on-surface-variant uppercase tracking-wider mb-3">
+                    Quantidades
+                </h4>
+                <div class="grid grid-cols-2 gap-3">
+                    <div>
+                        <label
+                            class="block text-xs font-semibold text-on-surface-variant mb-1.5 uppercase tracking-wide">Qtd.
+                            de Gado</label>
+                        <div class="w-full px-4 py-2.5 bg-surface-container-highest rounded-lg text-sm text-on-surface">
+                            {{ vendaItem()?.qtdGado }}
+                        </div>
+                    </div>
+                    <div>
+                        <label
+                            class="block text-xs font-semibold text-on-surface-variant mb-1.5 uppercase tracking-wide">Tratamentos/dia</label>
+                        <div class="w-full px-4 py-2.5 bg-surface-container-highest rounded-lg text-sm text-on-surface">
+                            {{ vendaItem()?.qtdTratamentoDia }}
+                        </div>
+                    </div>
+                    <div>
+                        <label
+                            class="block text-xs font-semibold text-on-surface-variant mb-1.5 uppercase tracking-wide">Peso
+                            Inicial (kg)</label>
+                        <div class="w-full px-4 py-2.5 bg-surface-container-highest rounded-lg text-sm text-on-surface">
+                            {{ vendaItem()?.pesoInicial }}
+                        </div>
+                    </div>
+                    <div>
+                        <label
+                            class="block text-xs font-semibold text-on-surface-variant mb-1.5 uppercase tracking-wide">Taxa
+                            de Rendimento (%)</label>
+                        <div class="w-full px-4 py-2.5 bg-surface-container-highest rounded-lg text-sm text-on-surface">
+                            {{ vendaItem()?.taxaRendimento }}
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Section 4: Ingredients -->
+            <div>
+                <div class="flex items-center justify-between mb-3">
+                    <h4 class="text-xs font-bold text-on-surface-variant uppercase tracking-wider">
+                        Ingredientes
+                    </h4>
+
+                    @for (i of insumos(); track i.id) {
+                        @for (iv of vendaItem()?.insumos; track iv.id) {
+                            @if(i.id == iv.insumoId){
+                                <option>{{ i.nomeInsumo }}</option>
+                            }
+                        }
+                    }
+                </div>
+
+            </div>
+
+            <!-- Section 5: Methods -->
+            <div>
+                <div class="flex items-center justify-between mb-3">
+                    <h4 class="text-xs font-bold text-on-surface-variant uppercase tracking-wider">
+                        Métodos
+                    </h4>
+                    @for (m of vendaItem()?.metodos; track m) {
+                        <option>{{ m }}</option>
+                    }
+                </div>
+
+            </div>
+        </div>
+    </div>
+</div>
+}
